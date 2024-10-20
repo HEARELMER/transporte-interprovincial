@@ -10,7 +10,9 @@ package transporte;
  * @author ACER
  */
 public class Conductor extends Persona {
-    Conductor(String nombre, int edad, String telefono, String dni){
+
+
+    Conductor(String nombre, int edad, String telefono, String dni) {
         super(nombre, edad, telefono, dni);
     }
 
@@ -18,7 +20,12 @@ public class Conductor extends Persona {
     public void imprimir() {
         System.out.println("Nombre: " + nombre);
         System.out.println("Edad: " + edad);
-        System.out.println("Telefono: " + telefono );
+        System.out.println("Telefono: " + telefono);
         System.out.println("DNI " + dni);
     }
+
+    @Override
+   public String toString() {
+    return "nombres: " + nombre + " telefono: " + telefono + " dni: " + dni;
+}
 }

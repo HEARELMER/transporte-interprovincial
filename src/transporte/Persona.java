@@ -10,6 +10,10 @@ package transporte;
  * @author ACER
  */
 public abstract class Persona {
+    protected String nombre;
+    protected int edad;
+    protected String telefono;
+    protected String dni;
 
     public Persona(String nombre, int edad, String telefono, String dni) {
         this.nombre = nombre;
@@ -17,10 +21,5 @@ public abstract class Persona {
         this.telefono = telefono;
         this.dni = dni;
     }
-   protected String nombre;
-   protected int edad;
-   protected String telefono;
-   protected String dni;
-    
     public abstract void imprimir();
 }

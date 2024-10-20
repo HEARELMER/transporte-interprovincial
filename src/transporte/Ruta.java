@@ -10,13 +10,15 @@ package transporte;
  * @author ACER
  */
 public class Ruta {
-private String origen;
+    private String origen;
     private String destino;
-    
-    public Ruta(String origen, String destino) {
+    private Double precio;
+    public Ruta(String origen, String destino, Double precio) {
         this.origen = origen;
         this.destino = destino;
+        this.precio = precio;
     }
+
     public String getOrigen() {
         return origen;
     }
@@ -33,6 +35,11 @@ private String origen;
         this.destino = destino;
     }
 
-   
-    
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
 }

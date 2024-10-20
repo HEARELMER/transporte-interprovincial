@@ -5,22 +5,19 @@
  */
 package transporte;
 
-/**
- *
- * @author ACER
- */
 public class Cliente extends Persona {
-    Cliente(String nombre, int edad, String telefono, String dni){
+    Cliente(String nombre, int edad, String telefono, String dni) {
         super(nombre, edad, telefono, dni);
     }
+
     @Override
-    public void imprimir(){
+    public void imprimir() {
         System.out.println("Nombre: " + nombre);
         System.out.println("Edad: " + edad);
-        System.out.println("Telefono: " + telefono );
+        System.out.println("Telefono: " + telefono);
         System.out.println("DNI " + dni);
-        
     }
+
     public String getNombre() {
         return nombre;
     }

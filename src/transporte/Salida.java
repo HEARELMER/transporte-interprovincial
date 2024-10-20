@@ -15,13 +15,12 @@ public class Salida {
 private Vehiculo vehiculo;
     private Ruta ruta;
     private Date fecha;
-    public Salida(Vehiculo vehiculo, Ruta ruta, Date fecha) {
+    public Salida(Vehiculo vehiculo, Date fecha) {
         this.vehiculo = vehiculo;
-        this.ruta = ruta;
         this.fecha = fecha;
     }
 
-    
+
 
     public Vehiculo getVehiculo() {
         return vehiculo;
@@ -47,7 +46,7 @@ private Vehiculo vehiculo;
         this.fecha = fecha;
     }
     public void imprimirSalida() {
-    System.out.println("Vehículo: " + vehiculo.getIdentificador()); // Asumiendo que Vehiculo tiene un identificador
+    System.out.println("Vehículo: " + vehiculo.getIdentificador()); 
     System.out.println("Conductor: " + vehiculo.getConductor());
     System.out.println("Ruta: " + ruta.getOrigen() + " - " + ruta.getDestino());
     System.out.println("Fecha de salida: " + fecha.toString());

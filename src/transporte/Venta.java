@@ -5,28 +5,22 @@
  */
 package transporte;
 
-/**
- *
- * @author ACER
- */
-public class Venta {
 
+public class Venta {
 
     private String codigoVenta;
     private Salida salida;
     private Cliente cliente;
     private Servicio servicio;
     private int asiento;
-    
-     public Venta(String codigoVenta,Salida salida, Cliente cliente, Servicio servicio, int asiento) {
+
+    public Venta(String codigoVenta, Salida salida, Cliente cliente, Servicio servicio, int asiento) {
         this.salida = salida;
         this.cliente = cliente;
         this.servicio = servicio;
         this.asiento = asiento;
         this.codigoVenta = codigoVenta;
     }
-
-   
 
     public Salida getSalida() {
         return salida;
@@ -59,26 +53,25 @@ public class Venta {
     public void setAsiento(int asiento) {
         this.asiento = asiento;
     }
-        public String getCodigoVenta() {
+
+    public String getCodigoVenta() {
         return codigoVenta;
     }
 
     public void setCodigoVenta(String codigoVenta) {
         this.codigoVenta = codigoVenta;
     }
-    public void imprimirComprobante(){
+
+    public void imprimirComprobante() {
         System.out.println("==================================");
         System.out.println("N°" + codigoVenta);
         System.out.println("Cliente: ");
         cliente.imprimir();
         System.out.println("Servicio: ");
-       servicio.imprimirDetalles();
-        System.out.println("Asiento: ");
-        System.out.println(asiento);
+        servicio.imprimir();
+        System.out.println("Asiento: " + asiento);
         System.out.println("Detalles de salida ");
         salida.imprimirSalida();
     }
 
- 
-   
 }

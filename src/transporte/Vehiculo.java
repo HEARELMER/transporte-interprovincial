@@ -12,13 +12,13 @@ package transporte;
 
 public class Vehiculo {
 
- private String identificador;
+    private String identificador;
     private Conductor conductor;
     private int capacidad;
     private Cliente[] asientos;
 
-  
     private int asientosOcupados;
+
     public Vehiculo(String identificador, Conductor conductor, int capacidad) {
         this.identificador = identificador;
         this.conductor = conductor;
@@ -27,9 +27,6 @@ public class Vehiculo {
         this.asientosOcupados = 0;
     }
 
-   
- 
-    
     public Conductor getConductor() {
         return conductor;
     }
@@ -37,67 +34,77 @@ public class Vehiculo {
     public void setConductor(Conductor conductor) {
         this.conductor = conductor;
     }
-    
-        public String getIdentificador() {
+
+    public String getIdentificador() {
         return identificador;
     }
 
     public void setIdentificador(String identificador) {
         this.identificador = identificador;
     }
-      public int getAsientosOcupados() {
+
+    public int getAsientosOcupados() {
         return asientosOcupados;
     }
 
     public void setAsientosOcupados(int asientosOcupados) {
         this.asientosOcupados = asientosOcupados;
     }
-       public boolean asignarPasajero(Cliente pasajero){
-        if(asientosOcupados < asientos.length){
-            if(this.asientos[asientosOcupados]!= null ){
+
+    public void mostrarConductor(){
+        conductor.imprimir();
+    }
+    public boolean asignarPasajero(Cliente pasajero) {
+        if (asientosOcupados < asientos.length) {
+            if (this.asientos[asientosOcupados] != null) {
                 System.out.println("Asineto ocupado");
                 return false;
             }
-            
+
             this.asientos[asientosOcupados] = pasajero;
             asientosOcupados++;
             System.out.println("Se registró con éxito");
             return true;
-        }else{
+        } else {
             System.out.println("Ya está lleno");
             return false;
         }
     }
-       
-      public boolean eliminarPasajero(String dni) {
-    for (int i = 0; i < asientosOcupados; i++) {
-        if (asientos[i].getDni().equals(dni)) {
-            // Desplazar los elementos hacia la izquierda para eliminar el pasajero
-            for (int j = i; j < asientosOcupados - 1; j++) {
-                asientos[j] = asientos[j + 1];
+
+    public boolean eliminarPasajero(String dni) {
+        for (int i = 0; i < asientosOcupados; i++) {
+            if (asientos[i] != null && asientos[i].getDni().equals(dni)) {
+                asientos[i] = null;
+                System.out.println("Pasajero eliminado con éxito.");
+                return true;
             }
-            asientos[asientosOcupados - 1] = null; // Liberar el último asiento
-            asientosOcupados--; // Reducir el número de asientos ocupados
-            System.out.println("Pasajero eliminado con éxito.");
-            return true;
+        }
+        System.out.println("Pasajero no encontrado.");
+        return false;
+    }
+
+    public void imprimirPasajeros() {
+        System.out.println("Lista de pasajeros:");
+        for (int i = 0; i < asientosOcupados; i++) {
+            if (asientos[i] != null) { 
+                System.out.println("Pasajero " + (i + 1) + ":");
+                System.out.println("Nombre: " + asientos[i].getNombre());
+                System.out.println("DNI: " + asientos[i].getDni());
+                System.out.println("Edad: " + asientos[i].getEdad());
+                System.out.println("Teléfono: " + asientos[i].getTelefono());
+                System.out.println("-------------------------");
+            }
         }
     }
-    System.out.println("Pasajero no encontrado.");
-    return false;
-}
 
-    
-public void imprimirPasajeros() {
-    if (asientosOcupados == 0) {
-        System.out.println("No hay pasajeros en este vehículo.");
-        return;
+    public void imprimirMapaAsientos() {
+        System.out.println("Mapa de asientos:");
+        for (int i = 0; i < asientos.length; i++) {
+            if (asientos[i] != null) {
+                System.out.println("Asiento " + (i + 1) + ": Ocupado por " + asientos[i].getNombre());
+            } else {
+                System.out.println("Asiento " + (i + 1) + ": Libre");
+            }
+        }
     }
-
-    System.out.println("Lista de pasajeros:");
-    for (int i = 0; i < asientosOcupados; i++) {
-        Cliente pasajero = asientos[i];
-        System.out.println((i + 1) + ". Nombre: " + pasajero.getNombre() + ", DNI: " + pasajero.getDni());
-    }
-}
-
 }
